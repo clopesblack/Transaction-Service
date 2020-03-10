@@ -2,6 +2,7 @@ package com.challenge.transactionservice.controllers;
 
 import com.challenge.transactionservice.controllers.resources.TransactionRequest;
 import com.challenge.transactionservice.controllers.resources.TransactionResponse;
+import com.challenge.transactionservice.controllers.resources.TransactionSumResponse;
 import com.challenge.transactionservice.services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -39,7 +40,7 @@ public class TransactionController {
     }
 
     @GetMapping("/sum/{transaction_id}")
-    public ResponseEntity<Double> getSumByTransaction(@PathVariable final Long transaction_id) {
+    public ResponseEntity<TransactionSumResponse> getSumByTransaction(@PathVariable final Long transaction_id) {
         return ResponseEntity.ok(service.getSumFromTransaction(transaction_id));
     }
 }

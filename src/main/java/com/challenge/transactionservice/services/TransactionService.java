@@ -2,6 +2,7 @@ package com.challenge.transactionservice.services;
 
 import com.challenge.transactionservice.controllers.resources.TransactionRequest;
 import com.challenge.transactionservice.controllers.resources.TransactionResponse;
+import com.challenge.transactionservice.controllers.resources.TransactionSumResponse;
 import com.challenge.transactionservice.exceptions.ErrorOnTrySaveTransactionException;
 import com.challenge.transactionservice.exceptions.TransactionNotFoundException;
 import com.challenge.transactionservice.exceptions.TransactionsByTypeNotFoundException;
@@ -51,9 +52,9 @@ public class TransactionService {
                 .collect(Collectors.toList());
     }
 
-    public Double getSumFromTransaction(final Long transactionId) {
+    public TransactionSumResponse getSumFromTransaction(final Long transactionId) {
         Set<TransactionInformation> allTransactions = getAllTransactions(transactionId);
-        return allTransactions.stream().mapToDouble(TransactionInformation::getAmount).sum();
+        return new TransactionSumResponse(allTransactions.stream().mapToDouble(TransactionInformation::getAmount).sum());
     }
 
     private Set<TransactionInformation> getAllTransactions(final Long id) {
