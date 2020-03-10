@@ -1,8 +1,6 @@
 package com.challenge.transactionservice.endpoints;
 
 import com.challenge.transactionservice.controllers.resources.TransactionRequest;
-import com.challenge.transactionservice.exceptions.TransactionNotFoundException;
-import com.challenge.transactionservice.exceptions.TransactionsByTypeNotFoundException;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
